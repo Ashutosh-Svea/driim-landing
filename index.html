@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driim - Coming Soon</title>
+    <title>Driim — A New Way to Explore Your Dreams</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="A new way to explore your dreams. Coming soon from Siddha Tantra Arts.">
+    <meta name="description" content="Jyoti — the flame of knowing — inside Driim. A new way to explore your dreams. Pre-release premier, from Siddha Tantra Arts.">
     <meta name="author" content="Siddha Tantra Arts">
+    <meta name="theme-color" content="#0a0706">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://driim.app/">
-    <meta property="og:title" content="Driim - Coming Soon">
-    <meta property="og:description" content="A new way to explore your dreams.">
+    <meta property="og:title" content="Driim — Bring Her Your Dreams">
+    <meta property="og:description" content="Jyoti, the flame of knowing, inside Driim. A new way to explore your dreams. Sign up for the pre-release premier.">
     <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Driim - Coming Soon">
-    <meta name="twitter:description" content="A new way to explore your dreams.">
+    <meta name="twitter:title" content="Driim — Bring Her Your Dreams">
+    <meta name="twitter:description" content="Jyoti, the flame of knowing, inside Driim. A new way to explore your dreams.">
+    <meta name="twitter:image" content="/og-image.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -27,254 +31,427 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --deep-indigo: #1a1a2e;
-            --mystic-purple: #4a3f6b;
-            --soft-violet: #7c6a9a;
-            --dawn-rose: #d4a5a5;
-            --golden-light: #e8c87d;
-            --cream: #f5f0e8;
-            --soft-white: #fdfcfa;
+            --ink: #0a0706;          /* near-black ground */
+            --ash: #15100d;
+            --rakta: #8b1414;        /* blood red */
+            --ember: #e0531c;        /* flame ember */
+            --ember-bright: #ffb347; /* flame core */
+            --gold: #c9a24b;         /* refined gold */
+            --gold-soft: #d9bd83;
+            --bone: #ece3d2;         /* primary text */
+            --bone-dim: rgba(236, 227, 210, 0.55);
+            --bone-faint: rgba(236, 227, 210, 0.32);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { min-height: 100%; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--deep-indigo) 0%, var(--mystic-purple) 50%, var(--soft-violet) 100%);
+            background:
+                radial-gradient(ellipse 60% 55% at 50% 40%, rgba(139, 20, 20, 0.22) 0%, rgba(10, 7, 6, 0) 60%),
+                radial-gradient(circle at 50% 40%, #1c1109 0%, #0a0706 55%, #060403 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--soft-white);
+            color: var(--bone);
             position: relative;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        body::before {
+        /* faint grain / star dust */
+        body::after {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e8c87d' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='30' r='0.6'/%3E%3Ccircle cx='90' cy='15' r='0.5'/%3E%3Ccircle cx='120' cy='70' r='0.6'/%3E%3Ccircle cx='55' cy='95' r='0.5'/%3E%3Ccircle cx='15' cy='110' r='0.6'/%3E%3Ccircle cx='100' cy='120' r='0.5'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* the central vertical axis of light */
+        .axis {
+            position: fixed;
+            top: 0; bottom: 0;
+            left: 50%;
+            width: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(to bottom,
+                rgba(201, 162, 75, 0) 0%,
+                rgba(201, 162, 75, 0.18) 30%,
+                rgba(224, 83, 28, 0.35) 50%,
+                rgba(201, 162, 75, 0.18) 70%,
+                rgba(201, 162, 75, 0) 100%);
+            z-index: 0;
             pointer-events: none;
         }
 
-        .container {
+        .stage {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             text-align: center;
-            padding: 2rem;
-            max-width: 500px;
+            padding: 2rem 1.5rem;
+            max-width: 540px;
+            width: 100%;
+        }
+
+        /* --- Jyoti flame (WebGL canvas from the Driim prototype) --- */
+        .jyoti {
+            position: relative;
+            width: 220px;
+            height: 280px;
+            margin: 0 auto 1rem;
+        }
+        #jyotiFlame {
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 16px rgba(224, 83, 28, 0.45));
+        }
+
+        /* Static flame backup — shown on no-WebGL / reduced-motion machines */
+        .jyoti-fallback { display: none; }
+        .jyoti.no-webgl #jyotiFlame { display: none; }
+        .jyoti.no-webgl .jyoti-fallback {
+            display: block;
+            width: 220px;
+            height: auto;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 16px rgba(224, 83, 28, 0.45));
         }
 
         .logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
+            font-size: 4.6rem;
             font-weight: 500;
-            letter-spacing: 0.3em;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 30px rgba(0,0,0,0.3);
-            animation: fadeIn 1.5s ease-out;
+            letter-spacing: 0.32em;
+            text-indent: 0.32em;
+            color: var(--bone);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 40px rgba(224, 83, 28, 0.25);
+            animation: rise 1.6s ease-out both;
+        }
+
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.42em;
+            text-indent: 0.42em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2.2rem;
+            animation: rise 1.6s ease-out 0.15s both;
         }
 
         .tagline {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.55rem;
             font-weight: 400;
             font-style: italic;
-            color: var(--dawn-rose);
-            margin-bottom: 3rem;
-            letter-spacing: 0.05em;
-            animation: fadeIn 1.5s ease-out 0.3s both;
+            color: var(--gold-soft);
+            margin-bottom: 1.4rem;
+            letter-spacing: 0.02em;
+            animation: rise 1.6s ease-out 0.3s both;
         }
+
+        .lore {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.18rem;
+            line-height: 1.55;
+            color: var(--bone-dim);
+            max-width: 420px;
+            margin: 0 auto 2.6rem;
+            animation: rise 1.6s ease-out 0.45s both;
+        }
+        .lore .em { color: var(--bone); font-style: italic; }
 
         .signup-form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.9rem;
             width: 100%;
-            animation: fadeIn 1.5s ease-out 0.6s both;
+            max-width: 380px;
+            margin: 0 auto;
+            animation: rise 1.6s ease-out 0.6s both;
         }
 
         .signup-form input[type="email"] {
             width: 100%;
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.95);
-            color: var(--deep-indigo);
+            padding: 0.95rem 1.3rem;
+            font-size: 0.98rem;
+            border: 1px solid rgba(201, 162, 75, 0.35);
+            border-radius: 2px;
+            background: rgba(236, 227, 210, 0.04);
+            color: var(--bone);
             text-align: center;
+            letter-spacing: 0.02em;
             font-family: 'Inter', sans-serif;
+            transition: border-color 0.25s, background 0.25s;
         }
-
-        .signup-form input[type="email"]::placeholder {
-            color: var(--soft-violet);
-        }
-
+        .signup-form input[type="email"]::placeholder { color: var(--bone-faint); }
         .signup-form input[type="email"]:focus {
             outline: none;
-            box-shadow: 0 0 0 3px var(--golden-light);
+            border-color: var(--gold);
+            background: rgba(236, 227, 210, 0.07);
+            box-shadow: 0 0 22px rgba(224, 83, 28, 0.18);
         }
 
         .signup-form button {
             width: 100%;
-            padding: 1rem 2rem;
-            font-size: 1rem;
+            padding: 0.95rem 1.5rem;
+            font-size: 0.78rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.22em;
+            text-indent: 0.22em;
             text-transform: uppercase;
             border: none;
-            border-radius: 50px;
-            background: linear-gradient(135deg, var(--golden-light) 0%, var(--dawn-rose) 100%);
-            color: var(--deep-indigo);
+            border-radius: 2px;
+            background: linear-gradient(135deg, var(--ember) 0%, var(--rakta) 100%);
+            color: var(--bone);
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
             font-family: 'Inter', sans-serif;
         }
-
         .signup-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+            box-shadow: 0 10px 34px rgba(139, 20, 20, 0.5), 0 0 18px rgba(224, 83, 28, 0.35);
         }
-
-        .signup-form button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
+        .signup-form button:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
 
         .note {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 1rem;
+            font-size: 0.82rem;
+            color: var(--bone-faint);
+            margin-top: 1.1rem;
+            letter-spacing: 0.02em;
+            line-height: 1.5;
+            max-width: 360px;
+            animation: rise 1.6s ease-out 0.75s both;
         }
+        .note a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,162,75,0.3); }
+        .note a:hover { color: var(--gold-soft); }
 
         .form-message {
             margin-top: 1rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.95rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 2px;
+            font-size: 0.92rem;
+            letter-spacing: 0.02em;
             display: none;
         }
-
         .form-message.success {
             display: block;
-            background: rgba(232, 200, 125, 0.2);
-            color: var(--golden-light);
-            border: 1px solid var(--golden-light);
+            background: rgba(201, 162, 75, 0.12);
+            color: var(--gold-soft);
+            border: 1px solid rgba(201, 162, 75, 0.5);
         }
-
         .form-message.error {
             display: block;
-            background: rgba(212, 165, 165, 0.2);
-            color: var(--dawn-rose);
-            border: 1px solid var(--dawn-rose);
+            background: rgba(139, 20, 20, 0.18);
+            color: #e9a08c;
+            border: 1px solid rgba(224, 83, 28, 0.5);
         }
 
         footer {
-            position: absolute;
-            bottom: 2rem;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
-            animation: fadeIn 1.5s ease-out 0.9s both;
+            position: relative;
+            z-index: 2;
+            margin-top: 3.2rem;
+            font-size: 0.74rem;
+            letter-spacing: 0.12em;
+            color: var(--bone-faint);
+            animation: rise 1.6s ease-out 0.9s both;
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+        footer a:hover { color: var(--gold-soft); }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        footer a {
-            color: var(--dawn-rose);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @media (prefers-reduced-motion: reduce) {
+            .logo, .kicker, .tagline, .lore, .signup-form, .note, footer { animation: none; }
         }
 
         @media (max-width: 600px) {
-            .logo {
-                font-size: 3.5rem;
-                letter-spacing: 0.2em;
-            }
-
-            .tagline {
-                font-size: 1.1rem;
-            }
+            .logo { font-size: 3.4rem; letter-spacing: 0.24em; text-indent: 0.24em; }
+            .tagline { font-size: 1.3rem; }
+            .lore { font-size: 1.06rem; }
+            .jyoti { width: 180px; height: 230px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="axis"></div>
+
+    <div class="stage">
+        <div class="jyoti" id="jyoti">
+            <canvas id="jyotiFlame" width="220" height="280" aria-hidden="true"></canvas>
+            <!-- static backup if WebGL is unavailable or reduced-motion is set -->
+            <img class="jyoti-fallback" src="/jyoti-still.png" width="220" height="280" alt="Jyoti, the flame" loading="eager" decoding="async">
+            <noscript><style>#jyotiFlame{display:none}.jyoti .jyoti-fallback{display:block;width:220px;height:auto;margin:0 auto}</style></noscript>
+        </div>
+
         <h1 class="logo">DRIIM</h1>
+        <p class="kicker">From Siddha Tantra Arts</p>
+
         <p class="tagline">A new way to explore your dreams</p>
 
+        <p class="lore">
+            The sacred didn't stop at the wires.<br>
+            It walked straight through them.<br>
+            <span class="em">Jyoti, the flame of knowing, now waits for you in your sleep.</span>
+        </p>
+
         <form class="signup-form" id="waitlist-form" action="https://formspree.io/f/mzdrqpgz" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
+            <input type="email" name="email" placeholder="your email" autocomplete="email" required>
+            <button type="submit">Join the Pre-Release Premier</button>
         </form>
-        <p class="note">Coming soon. Be the first to know.</p>
-        <div class="form-message" id="form-message"></div>
+
+        <p class="note">Sign up for early access.</p>
+        <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
     </div>
 
     <footer>
-        <a href="https://siddhatantraarts.com" target="_blank">Siddha Tantra Arts</a> · Sweden
+        <a href="https://siddhatantraarts.com" target="_blank" rel="noopener">Siddha Tantra Arts</a> · Sweden
     </footer>
 
     <script>
-        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+    /* ===========================================================
+       Jyoti flame — WebGL shader ported from the Driim home prototype
+       (driim-jyoti-home-prototype.html). Transparent column flame
+       with breath, base bloom, gaze orbit, embers and ripple.
+       =========================================================== */
+    const VERT = `attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0.,1.);}`;
+    const FRAG = `precision highp float;uniform vec2 u_res;uniform float u_time;
+    uniform float u_height,u_width,u_breath,u_focus,u_intensity,u_dawn,u_deepRed,u_gaze,u_ripple;
+    float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+    float noise(vec2 p){vec2 i=floor(p),f=fract(p);float a=hash(i),b=hash(i+vec2(1.,0.)),c=hash(i+vec2(0.,1.)),d=hash(i+vec2(1.,1.));vec2 u=f*f*(3.-2.*f);return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);}
+    float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.;a*=.5;}return v;}
+    const float BY=-0.36;
+    float flameI(vec2 p,float t){float h=p.y-BY;if(h<-0.06)return 0.;float hn=clamp(h/u_height,0.,1.3);
+     vec2 q=vec2(p.x*3.,p.y*2.6-t*1.7*u_breath);float n=fbm(q+fbm(q*.5));float sway=(n-.5)*.2*(.35+hn);
+     float x=p.x+sway*(1.-u_focus*.6);float w=u_width*(1.-smoothstep(0.,1.,hn));w*=mix(1.,.5,u_focus);w=max(w,.002);
+     float body=smoothstep(w,0.,abs(x));float vtop=1.-smoothstep(u_height*.65,u_height*1.15,h);float vbot=smoothstep(-.06,.04,h);
+     float flick=mix(.65,1.35,n);return clamp(body*vtop*vbot*flick*u_intensity,0.,1.);}
+    vec3 fcol(float i){vec3 c=vec3(.5,.06,.02)*smoothstep(0.,.25,i);c=mix(c,vec3(1.,.42,.08),smoothstep(.16,.5,i));
+     c=mix(c,vec3(1.,.78,.33),smoothstep(.45,.8,i));c=mix(c,vec3(1.,.96,.78),smoothstep(.82,1.,i));
+     c=mix(c,c*vec3(1.05,.72,.72)+vec3(.16,.03,.06),u_dawn*smoothstep(.1,.7,i)*.7);
+     c=mix(c,c*vec3(1.12,.42,.22),u_deepRed*smoothstep(.05,.6,i));return c;}
+    void main(){vec2 p=(gl_FragCoord.xy-.5*u_res)/u_res.y;float t=u_time;vec3 col=vec3(0.);
+     float wide=smoothstep(.34,0.,abs(p.x))*smoothstep(BY-.12,BY+u_height*.5,p.y)*smoothstep(BY+u_height*1.35,BY+u_height*.4,p.y);
+     col+=vec3(1.,.55,.2)*wide*.32*u_intensity;
+     float i=flameI(p,t);col+=fcol(i)*i*1.5;
+     vec2 bp=vec2(0.,BY);float bd=length(p-bp);float pulse=.78+.22*sin(t*1.4*u_breath);
+     col+=vec3(1.,.92,.66)*(smoothstep(.045,0.,bd)*1.2+smoothstep(.17,0.,bd)*.45)*pulse;
+     float gm=smoothstep(BY+.03,BY-.02,p.y);float rr=length(vec2(p.x,(p.y-BY)*2.6));
+     float rip=sin(rr*28.-t*(1.2+u_ripple*3.));rip=smoothstep(.55,1.,rip)*smoothstep(.55,0.,rr)*gm*u_ripple;
+     col+=vec3(1.,.82,.5)*rip*.7;
+     float gz=0.;for(int k=0;k<14;k++){float tt=t*1.3-float(k)*.07;float s=sin(tt),cth=cos(tt);float den=1.+s*s;
+      vec2 lp=vec2(.18*cth/den,.18*s*cth/den)+bp;float w=1.-float(k)/14.;gz+=smoothstep(.028*w+.004,0.,length(p-lp))*w;}
+     col+=vec3(1.,.93,.65)*gz*1.6*u_gaze;
+     for(int k=0;k<8;k++){float fk=float(k);float seed=hash(vec2(fk,3.7));float sp=.12+.22*seed;float ph=mod(seed+t*sp,1.);
+      float ex=(seed-.5)*.34*(.4+ph);float ey=BY+ph*u_height*1.15;
+      float e=smoothstep(.011,0.,length((p-vec2(ex,ey))*vec2(1.3,1.)))*(1.-ph)*(.5+.5*seed);col+=vec3(1.,.6,.25)*e*1.1;}
+     float a=clamp(max(col.r,max(col.g,col.b))*1.25,0.,1.);col=pow(max(col,0.),vec3(.9));gl_FragColor=vec4(col,a);}`;
 
-            const form = e.target;
-            const button = form.querySelector('button');
-            const messageEl = document.getElementById('form-message');
+    const STATES = {
+      idle:    {u_height:.55,u_width:.10,u_breath:1.0,u_focus:0,u_intensity:1.0,u_dawn:0,u_deepRed:0,u_gaze:0,u_ripple:.18},
+      morning: {u_height:.70,u_width:.115,u_breath:.9,u_focus:.1,u_intensity:1.25,u_dawn:.7,u_deepRed:0,u_gaze:0,u_ripple:.6},
+      ember:   {u_height:.34,u_width:.085,u_breath:.7,u_focus:0,u_intensity:.55,u_dawn:.15,u_deepRed:0,u_gaze:0,u_ripple:.1}
+    };
+    const PKEYS = Object.keys(STATES.idle);
 
-            button.disabled = true;
-            button.textContent = 'Joining...';
+    function makeFlame(canvas, stateName){
+      const gl = canvas.getContext('webgl', {alpha:true, premultipliedAlpha:false});
+      if(!gl) return null;
+      function cs(t,s){const sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);
+        if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(sh));return sh;}
+      const pr=gl.createProgram();gl.attachShader(pr,cs(gl.VERTEX_SHADER,VERT));gl.attachShader(pr,cs(gl.FRAGMENT_SHADER,FRAG));
+      gl.linkProgram(pr);gl.useProgram(pr);
+      const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+      const loc=gl.getAttribLocation(pr,'a_pos');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+      gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+      const U={};['u_res','u_time',...PKEYS].forEach(n=>U[n]=gl.getUniformLocation(pr,n));
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      canvas.width=canvas.clientWidth*dpr||canvas.width*dpr; canvas.height=canvas.clientHeight*dpr||canvas.height*dpr;
+      gl.viewport(0,0,canvas.width,canvas.height);
+      let cur={...STATES[stateName]},tar={...STATES[stateName]};
+      let last=performance.now()/1000,t0=last;
+      function frame(now){now/=1000;const dt=Math.min(now-last,.05);last=now;const k=Math.min(1,dt*3);
+        PKEYS.forEach(key=>cur[key]+=(tar[key]-cur[key])*k);
+        gl.useProgram(pr);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.uniform2f(U.u_res,canvas.width,canvas.height);gl.uniform1f(U.u_time,now-t0);
+        PKEYS.forEach(key=>gl.uniform1f(U[key],cur[key]));
+        gl.drawArrays(gl.TRIANGLES,0,3);requestAnimationFrame(frame);}
+      requestAnimationFrame(frame);
+      return {setState:n=>{tar={...STATES[n]};}};
+    }
 
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
+    (function initJyoti(){
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const wrap = document.getElementById('jyoti');
+      const c = document.getElementById('jyotiFlame');
+      // lock CSS size so the WebGL backing buffer is computed correctly
+      c.style.width = c.getAttribute('width') + 'px';
+      c.style.height = c.getAttribute('height') + 'px';
+      let flame = null;
+      if(!reduce){
+        try { flame = makeFlame(c, 'idle'); } catch(e){ flame = null; }
+      }
+      if(!flame){ wrap.classList.add('no-webgl'); return; }
+      // a slow, living breath: drift toward a warmer 'morning' on hover, back to 'idle'
+      wrap.addEventListener('pointerenter', ()=>flame.setState('morning'));
+      wrap.addEventListener('pointerleave', ()=>flame.setState('idle'));
+    })();
+    </script>
 
-                if (response.ok) {
-                    messageEl.textContent = "You're on the list.";
-                    messageEl.className = 'form-message success';
-                    form.querySelector('input[type="email"]').value = '';
-                } else {
-                    throw new Error('Failed');
-                }
-            } catch (error) {
-                messageEl.textContent = 'Something went wrong. Try again.';
-                messageEl.className = 'form-message error';
+    <script>
+    /* ---------- waitlist form (Formspree) ---------- */
+    document.getElementById('waitlist-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const button = form.querySelector('button');
+        const messageEl = document.getElementById('form-message');
+        const label = button.textContent;
+
+        button.disabled = true;
+        button.textContent = 'Lighting the lamp…';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                messageEl.textContent = "You're on the list. Jyoti will call.";
+                messageEl.className = 'form-message success';
+                form.querySelector('input[type="email"]').value = '';
+            } else {
+                throw new Error('Failed');
             }
+        } catch (error) {
+            messageEl.textContent = 'Something went wrong. Please try again.';
+            messageEl.className = 'form-message error';
+        }
 
-            button.disabled = false;
-            button.textContent = 'Notify Me';
-        });
+        button.disabled = false;
+        button.textContent = label;
+    });
     </script>
 
 </body>
