@@ -77,23 +77,6 @@
             z-index: 0;
         }
 
-        /* the central vertical axis of light */
-        .axis {
-            position: fixed;
-            top: 0; bottom: 0;
-            left: 50%;
-            width: 1px;
-            transform: translateX(-50%);
-            background: linear-gradient(to bottom,
-                rgba(201, 162, 75, 0) 0%,
-                rgba(201, 162, 75, 0.18) 30%,
-                rgba(224, 83, 28, 0.35) 50%,
-                rgba(201, 162, 75, 0.18) 70%,
-                rgba(201, 162, 75, 0) 100%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
         .stage {
             position: relative;
             z-index: 2;
@@ -189,21 +172,21 @@
             width: 100%;
             padding: 0.95rem 1.3rem;
             font-size: 0.98rem;
-            border: 1px solid rgba(201, 162, 75, 0.35);
+            border: 1px solid rgba(201, 162, 75, 0.55);
             border-radius: 2px;
-            background: rgba(236, 227, 210, 0.04);
+            background: rgba(236, 227, 210, 0.05);
             color: var(--bone);
             text-align: center;
             letter-spacing: 0.02em;
             font-family: 'Inter', sans-serif;
-            transition: border-color 0.25s, background 0.25s;
+            transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
         }
-        .signup-form input[type="email"]::placeholder { color: var(--bone-faint); }
+        .signup-form input[type="email"]::placeholder { color: rgba(236, 227, 210, 0.5); }
         .signup-form input[type="email"]:focus {
             outline: none;
-            border-color: var(--gold);
-            background: rgba(236, 227, 210, 0.07);
-            box-shadow: 0 0 22px rgba(224, 83, 28, 0.18);
+            border-color: #e6c473;
+            background: rgba(236, 227, 210, 0.08);
+            box-shadow: 0 0 0 1px rgba(230, 196, 115, 0.55), 0 0 24px rgba(224, 83, 28, 0.28);
         }
 
         .signup-form button {
@@ -293,8 +276,6 @@
 </head>
 <body>
 
-    <div class="axis"></div>
-
     <div class="stage">
         <div class="jyoti" id="jyoti">
             <canvas id="jyotiFlame" width="220" height="280" aria-hidden="true"></canvas>
@@ -306,17 +287,16 @@
         <h1 class="logo">DRIIM</h1>
         <p class="kicker">From Siddha Tantra Arts</p>
 
-        <p class="tagline">A new way to explore your dreams</p>
+        <p class="tagline">The web &amp; mobile app to explore your dreams</p>
 
         <p class="lore">
-            The sacred didn't stop at the wires.<br>
-            It walked straight through them.<br>
-            <span class="em">Jyoti, the flame of knowing, now waits for you in your sleep.</span>
+            Jyoti follows your dream symbols and patterns over time. Discover your dreamscape &amp; inner worlds with Jyoti.<br><br>
+            <span class="em">Jyoti, the flame of knowing, now waits for your dreams.</span>
         </p>
 
         <form class="signup-form" id="waitlist-form" action="https://formspree.io/f/mzdrqpgz" method="POST">
             <input type="email" name="email" placeholder="your email" autocomplete="email" required>
-            <button type="submit">Sign up for early access</button>
+            <button type="submit">Sign up for early app access</button>
         </form>
 
         <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
