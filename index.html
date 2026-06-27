@@ -501,10 +501,10 @@
     function showConfirmed(d) {
         renderResult(
             `<p class="wl-head">You're in.</p>
-             <div class="wl-position"><span class="wl-num">#${d.position}</span><span class="wl-of">of ${d.total} waiting</span></div>`
+             <p class="wl-sub">We'll keep you posted as Driim takes shape — and we'll let you know the moment we launch.</p>`
             + (d.skipLineUnlocked
                 ? `<div class="wl-founding">You're a founding member — <strong>30% off Driim for life</strong>, locked in for launch. We'll be in touch.</div>`
-                : `<p class="wl-prompt">Refer ${d.threshold} friends to skip the line and become a founding member — lock in 30% off Driim for life. (${d.referralCount}/${d.threshold})</p>`)
+                : `<p class="wl-prompt">Refer ${d.threshold} friends to skip the line and become a founding member — lock in 30% off Driim for life.</p>`)
             + shareBlock(d.shareUrl));
     }
 
@@ -584,8 +584,15 @@
         }
 
         referrerCode = p.get('r');
-        if (referrerCode) { const inv = document.getElementById('wl-invited'); if (inv) inv.hidden = false; }
+        if (referrerCode) {
+            // Arrived via an invite link → always present the signup form to the new visitor.
+            // Do NOT short-circuit to this device's saved status (that's what made an inviter's own
+            // link open their "You're in" screen instead of a fresh signup).
+            const inv = document.getElementById('wl-invited'); if (inv) inv.hidden = false;
+            return;
+        }
 
+        // Plain visit → show this device's saved status if we have one.
         const code = localStorage.getItem(LS_CODE);
         if (code) {
             const ok = await fetchStatus(code);
