@@ -554,9 +554,20 @@
                 const r = await api('/confirm', { method: 'POST', body: JSON.stringify({ token: p.get('confirm') }) });
                 if (r.ok) {
                     clean();
-                    const code = localStorage.getItem(LS_CODE);
-                    if (!code || !(await fetchStatus(code)))
-                        showSimple("You're confirmed.", "You're on the list. Open driim.app on the device you signed up on to see your position and invite link.");
+                    const data = await r.json().catch(() => ({}));
+                    if (data && data.status) {
+                        // confirm returned the status → show position + invite link on ANY device, and cache it here.
+                        const m = (data.status.shareUrl || '').match(/[?&]r=([^&]+)/);
+                        if (m) localStorage.setItem(LS_CODE, m[1]);
+                        localStorage.setItem(LS_SHARE, data.status.shareUrl || '');
+                        localStorage.setItem(LS_STATE, 'confirmed');
+                        showConfirmed(data.status);
+                    } else {
+                        // already-confirmed replay (token consumed) → try a code we may have, else a gentle message.
+                        const code = localStorage.getItem(LS_CODE);
+                        if (!code || !(await fetchStatus(code)))
+                            showSimple("You're confirmed.", "You're on the list. Your invite link is in the confirmation email we sent you.");
+                    }
                 } else { showSimple('Link expired', 'This confirmation link is invalid or has expired. Try signing up again.'); }
             } catch (e) { showSimple('Something went wrong', 'Please try the link again in a moment.'); }
             return;
