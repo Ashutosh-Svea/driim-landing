@@ -283,6 +283,37 @@
         footer a { color: var(--gold); text-decoration: none; }
         footer a:hover { color: var(--gold-soft); }
 
+        /* ---------- immersions catalog + cold survey (Phase 109 C5) ---------- */
+        .wl-survey { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
+        .wl-survey-label { font-size: 0.74rem; color: var(--bone-faint); letter-spacing: 0.04em; }
+        .wl-survey select {
+            width: 100%; padding: 0.8rem 1rem; font-size: 0.9rem;
+            border: 1px solid rgba(201, 162, 75, 0.4); border-radius: 2px;
+            background: rgba(236, 227, 210, 0.05); color: var(--bone);
+            font-family: 'Inter', sans-serif; letter-spacing: 0.02em; text-align: center;
+        }
+        .wl-survey select:focus { outline: none; border-color: #e6c473; }
+
+        .imm {
+            position: relative; z-index: 2;
+            max-width: 940px; margin: 0 auto; padding: 3.5rem 1.5rem 1rem; text-align: center;
+        }
+        .imm-head { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--bone); margin-bottom: 0.5rem; }
+        .imm-lede { font-size: 0.95rem; color: var(--bone-dim); line-height: 1.6; max-width: 560px; margin: 0 auto 2.2rem; letter-spacing: 0.02em; }
+        .imm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; text-align: left; }
+        .imm-card { border: 1px solid rgba(201, 162, 75, 0.28); border-radius: 3px; padding: 1.1rem 1.2rem; background: rgba(236, 227, 210, 0.03); }
+        .imm-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--gold-soft); margin-bottom: 0.35rem; }
+        .imm-meta { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem; }
+        .imm-card p { font-size: 0.86rem; color: var(--bone-dim); line-height: 1.55; }
+        .imm-upcoming { margin-top: 1.6rem; font-size: 0.82rem; color: var(--bone-faint); line-height: 1.6; letter-spacing: 0.02em; }
+        .imm-upcoming strong { color: var(--bone-dim); font-weight: 500; }
+
+        .pro { position: relative; z-index: 2; max-width: 620px; margin: 0 auto; padding: 2.5rem 1.5rem 1rem; text-align: center; border-top: 1px solid rgba(201, 162, 75, 0.12); }
+        .pro-head { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--bone); margin-bottom: 0.6rem; }
+        .pro-lede { font-size: 0.95rem; color: var(--bone-dim); line-height: 1.65; letter-spacing: 0.02em; }
+        .pro-lede strong { color: var(--gold-soft); font-weight: 500; }
+        .pro-lede em { color: var(--bone); font-style: italic; }
+
         @keyframes rise {
             from { opacity: 0; transform: translateY(18px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -326,14 +357,62 @@
             <form class="signup-form" id="waitlist-form" novalidate>
                 <input type="email" name="email" placeholder="your email" autocomplete="email" required>
                 <input type="text" class="wl-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <!-- Phase 109 C5 — optional cold-channel immersions survey (skippable; nothing pre-selected). -->
+                <div class="wl-survey">
+                    <span class="wl-survey-label">Optional — help us choose what to build first</span>
+                    <select name="immersionFirstChoice" id="wl-imm-choice" aria-label="Which immersion would you take first?">
+                        <option value="">Which would you take first?</option>
+                        <option value="map_dream_world">Map Your Dream World · 21 days</option>
+                        <option value="meet_shadow">Meet Your Shadow · 21 days</option>
+                        <option value="nights_without_fear">Nights Without Fear · 21 days</option>
+                        <option value="dream_with_intention">Dream With Intention · 14 days</option>
+                        <option value="first_light">First Light · 21 days</option>
+                        <option value="none">None of these</option>
+                    </select>
+                    <select name="immersionFairPrice" id="wl-imm-price" aria-label="A fair price for a three-week immersion?">
+                        <option value="">A fair price for a 3-week immersion?</option>
+                        <option value="p9">$9.99</option>
+                        <option value="p19">$19.99</option>
+                        <option value="p29">$29.99</option>
+                        <option value="p39">$39.99</option>
+                        <option value="would_not_pay">I wouldn't pay for this</option>
+                    </select>
+                </div>
                 <button type="submit">Sign up for early app access</button>
             </form>
 
-            <p class="wl-offer" id="wl-offer">Refer 3 friends to skip the line and become a founding member — lock in <strong style="color:var(--gold-soft);font-weight:600">30% off Driim for life</strong> when we launch.</p>
+            <p class="wl-offer" id="wl-offer">Refer 3 friends to become a founding member — early access, the <strong style="color:var(--gold-soft);font-weight:600">founding badge</strong>, and a founder's perk when we launch.</p>
 
             <div class="form-message" role="status" aria-live="polite"></div>
             <div class="wl-result" id="wl-result" hidden></div>
         </div>
+    </section>
+
+    <!-- Phase 109 C5 — immersions catalog (honest pre-launch display; no buy button, nothing for sale yet). -->
+    <section class="imm" id="immersions">
+        <h2 class="imm-head">The guided immersions</h2>
+        <p class="imm-lede">Coming with launch — priced, guided journeys through your dreams with Elda. Nothing is
+            for sale yet; the short survey in the sign-up above helps us choose what to build first.</p>
+        <div class="imm-grid">
+            <div class="imm-card"><div class="imm-meta">21 days · $19.99</div><h3>Map Your Dream World</h3>
+                <p>Three weeks of gentle practice, ending in a map of your dream world — its places, figures, and feelings.</p></div>
+            <div class="imm-card"><div class="imm-meta">21 days · $19.99</div><h3>Meet Your Shadow</h3>
+                <p>The parts of you that only visit at night — noticed gently, on your terms.</p></div>
+            <div class="imm-card"><div class="imm-meta">21 days · $29.99</div><h3>Nights Without Fear</h3>
+                <p>A calm, structured three weeks for anyone whose nights are hard — at your pace, the exit always visible. Not therapy.</p></div>
+            <div class="imm-card"><div class="imm-meta">14 days · $19.99</div><h3>Dream With Intention</h3>
+                <p>Two weeks learning to seed your nights — set an intention at dusk, watch what the dreams do by dawn.</p></div>
+            <div class="imm-card"><div class="imm-meta">21 days · $19.99</div><h3>First Light</h3>
+                <p>Claim the quiet hour — first light, where the night's dreams are freshest.</p></div>
+        </div>
+        <p class="imm-upcoming"><strong>In development:</strong> Wake Inside Your Dreams (lucidity) · Nights That
+            Feed Your Dreams — not yet available, arriving after launch.</p>
+    </section>
+
+    <!-- Driim Plus — the everyday app / continuity after a journey. -->
+    <section class="pro" id="pro">
+        <h2 class="pro-head">And your everyday dream companion</h2>
+        <p class="pro-lede">Beyond the guided journeys, Driim is a <strong>web &amp; mobile app</strong> where Elda captures every dream, remembers your dreamscape, and keeps learning it — night after night. <em>Driim Plus keeps the map alive.</em></p>
     </section>
 
     <footer>
@@ -446,6 +525,21 @@
     const resultEl = document.getElementById('wl-result');
     let referrerCode = null;
 
+    // Phase 109 C3 — card→signup attribution. A visitor arriving from a shared card
+    // (?ref=card&cardType=...&shareId=...) is tagged share_card so the waitlist join emits
+    // signup_from_card and registration copies the AcquisitionChannel onto the user.
+    const SS_CARD = 'driim_wl_card';
+    let cardAcquisition = null;
+
+    // Pure: derive the card acquisition tag from a URL search string (null when not a card visit).
+    function resolveCardAcquisition(search) {
+        const q = new URLSearchParams(search || '');
+        if (q.get('ref') !== 'card') return null;
+        const KNOWN = ['portrait', 'landscape', 'quote'];
+        const cardType = q.get('cardType');
+        return { acquisitionChannel: 'share_card', cardType: KNOWN.indexOf(cardType) >= 0 ? cardType : null };
+    }
+
     const api = (path, opts) => fetch(API_BASE + path, Object.assign(
         { headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }, opts));
 
@@ -503,8 +597,8 @@
             `<p class="wl-head">You're in.</p>
              <p class="wl-sub">We'll keep you posted as Driim takes shape — and we'll let you know the moment we launch.</p>`
             + (d.skipLineUnlocked
-                ? `<div class="wl-founding">You're a founding member — <strong>30% off Driim for life</strong>, locked in for launch. We'll be in touch.</div>`
-                : `<p class="wl-prompt">Refer ${d.threshold} friends to skip the line and become a founding member — lock in 30% off Driim for life.</p>`)
+                ? `<div class="wl-founding">You're a founding member — early access, the <strong>founding badge</strong>, and a founder's perk at launch, locked in. We'll be in touch.</div>`
+                : `<p class="wl-prompt">Refer ${d.threshold} friends to become a founding member — early access, the founding badge, and a founder's perk when we launch.</p>`)
             + shareBlock(d.shareUrl));
     }
 
@@ -525,7 +619,18 @@
         const button = form.querySelector('button'); const label = button.textContent;
         button.disabled = true; button.textContent = 'Lighting the lamp…';
         try {
-            const r = await api('/join', { method: 'POST', body: JSON.stringify({ email, referralCode: referrerCode, website }) });
+            const body = { email, referralCode: referrerCode, website };
+            if (cardAcquisition) {
+                body.acquisitionChannel = cardAcquisition.acquisitionChannel;
+                if (cardAcquisition.cardType) body.cardType = cardAcquisition.cardType;
+            }
+            // Phase 109 C5 — optional immersions cold-survey answers (skipped fields are omitted; the server
+            // normalizes each against a fixed enum and drops anything unexpected).
+            const immChoice = (document.getElementById('wl-imm-choice') || {}).value || '';
+            const immPrice = (document.getElementById('wl-imm-price') || {}).value || '';
+            if (immChoice) body.immersionFirstChoice = immChoice;
+            if (immPrice) body.immersionFairPrice = immPrice;
+            const r = await api('/join', { method: 'POST', body: JSON.stringify(body) });
             if (r.status === 404) { setMsg(form, 'Early-access sign-ups open very soon — check back shortly.', ''); return; }
             if (!r.ok) throw new Error('bad');
             const d = await r.json();
@@ -548,6 +653,16 @@
     (async function initWaitlist() {
         const p = new URLSearchParams(location.search);
         const clean = () => history.replaceState({}, '', location.pathname);
+
+        // Phase 109 C3 — capture card attribution first (persisted to sessionStorage so it survives to the
+        // join even if the visitor navigates), before the email-link branches below return early.
+        const fromCard = resolveCardAcquisition(location.search);
+        if (fromCard) {
+            cardAcquisition = fromCard;
+            try { sessionStorage.setItem(SS_CARD, JSON.stringify(fromCard)); } catch (e) {}
+        } else {
+            try { const s = sessionStorage.getItem(SS_CARD); if (s) cardAcquisition = JSON.parse(s); } catch (e) {}
+        }
 
         if (p.get('confirm')) {
             try {
